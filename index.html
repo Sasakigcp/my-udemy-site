@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="臨床試験・臨床開発のプロフェッショナル向けUdemyオンラインコース紹介。GCP省令、ICHガイドライン、リスクベースアプローチを体系的に学べます。">
+    <title>臨床開発者向け Udemy特別コース</title>
+    <style>
+        :root {
+            --navy-dark: #0a192f;
+            --navy-main: #112240;
+            --navy-light: #233554;
+            --white: #ffffff;
+            --off-white: #f8fafc;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --accent: #3b82f6;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background-color: var(--off-white);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: var(--navy-dark);
+            color: var(--white);
+            padding: 5rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--navy-light) 0%, var(--accent) 50%, var(--navy-light) 100%);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: -2rem auto 4rem;
+            padding: 0 1.5rem;
+            flex-grow: 1;
+            position: relative;
+            z-index: 10;
+        }
+
+        .course-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background-color: var(--navy-main);
+            transition: background-color 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .course-card:hover::before {
+            background-color: var(--accent);
+        }
+
+        .course-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .course-number {
+            background-color: var(--navy-light);
+            color: var(--white);
+            font-weight: bold;
+            font-size: 0.85rem;
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            margin-top: 0.3rem;
+            letter-spacing: 0.05em;
+        }
+
+        .course-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--navy-dark);
+            line-height: 1.5;
+        }
+
+        .course-description {
+            color: var(--text-main);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+        
+        .course-description p {
+            margin-bottom: 1.2rem;
+        }
+        
+        .course-description p:last-child {
+            margin-bottom: 0;
+        }
+
+        .strong-text {
+            color: var(--navy-dark);
+            font-weight: 700;
+            background: linear-gradient(120deg, transparent 0%, transparent 60%, rgba(59, 130, 246, 0.1) 60%, rgba(59, 130, 246, 0.1) 100%);
+        }
+
+        .course-action {
+            text-align: right;
+            margin-top: 2.5rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1.8rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--navy-main);
+            color: var(--white);
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(17, 34, 64, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--navy-light);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px -3px rgba(17, 34, 64, 0.3);
+        }
+
+        .btn::after {
+            content: '→';
+            margin-left: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover::after {
+            transform: translateX(6px);
+        }
+
+        .features-list {
+            margin-top: 2rem;
+            background-color: var(--off-white);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .features-list-title {
+            font-weight: 700;
+            color: var(--navy-dark);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list-title::before {
+            content: '✦';
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+
+        .features-list ul {
+            list-style-type: none;
+        }
+
+        .features-list li {
+            position: relative;
+            padding-left: 1.8rem;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+        
+        .features-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .note {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            background-color: #f1f5f9;
+            padding: 1rem;
+            border-radius: 6px;
+        }
+
+        footer {
+            background-color: var(--navy-dark);
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 4rem 1.5rem 5rem;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .container {
+                margin-top: -3rem;
+            }
+            .course-header {
+                flex-direction: column;
+            }
+            .course-number {
+                margin-bottom: 1rem;
+                font-size: 0.8rem;
+            }
+            .course-title {
+                font-size: 1.25rem;
+            }
+            .course-card {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            .course-action {
+                border-top: none;
+                padding-top: 0;
+            }
+            .btn {
+                width: 100%;
+                padding: 1rem;
+            }
+            .features-list {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>臨床開発担当者向け学習プログラム</h1>
+        <p>GCP、ICHガイドライン、リスクベースアプローチなど、<br>臨床試験の品質と信頼性を高める実践的コース</p>
+    </header>
+
+    <main class="container">
+
+        <!-- Course 1 -->
+        <article class="course-card">
+            <div class="course-header">
+                <span class="course-number">COURSE 01</span>
+                <h2 class="course-title">臨床試験の品質管理「リスクベースアプローチ（RBA）」入門</h2>
+            </div>
+            <div class="course-description">
+                <p>この講座は、従来の100% SDV／出口管理に代わる現代的な品質管理手法<span class="strong-text">「リスクベースアプローチ（RBA）」</span>を、実務目線で体系的に学べる実践講座です。</p>
+                <p>ICH E6の改訂と国際的な潮流を背景に、なぜRBAが必須になったのか、どのように現場で導入し運用するのかを解説します。</p>
+            </div>
+            <div class="course-action">
+                <a href="https://www.udemy.com/course/rba-ekbu/?referralCode=A10DE5BA172A6B23DA88" target="_blank" rel="noopener noreferrer" class="btn">コースの詳細を見る</a>
+            </div>
+        </article>
+
+        <!-- Course 2 -->
+        <article class="course-card">
+            <div class="course-header">
+                <span class="course-number">COURSE 02</span>
+                <h2 class="course-title">【臨床試験】ICH Efficacy全シリーズ徹底解説｜E1〜E19を動画＆99ページ図解PDFで効率学習</h2>
+            </div>
+            <div class="course-description">
+                <p>ICHガイドラインの文章は、難しい専門用語が多く、読むだけで疲れてしまうことはありませんか？特にEfficacy（Eシリーズ）は臨床試験に直結する重要な内容ですが、分厚い文書を独学で理解するのは大変です。</p>
+                <p>そこで本コースでは、<span class="strong-text">ICH Efficacy（Eシリーズ）</span>を動画でわかりやすく解説しました。読むだけでは理解しづらいポイントも、図解や具体例を交えて学べるので、スムーズに頭に入ります。</p>
+                <p>さらに特典として、<strong>全99ページの図解付きPDF</strong>をご用意しています。復習や業務での参照にも便利で、eラーニング＋教材の両方から効率よく学習できます。</p>
+            </div>
+            <div class="course-action">
+                <a href="https://www.udemy.com/course/ich-efficacye1e1999pdf/?referralCode=854261B972CF09CF7303" target="_blank" rel="noopener noreferrer" class="btn">コースの詳細を見る</a>
+            </div>
+        </article>
+
+        <!-- Course 3 -->
+        <article class="course-card">
+            <div class="course-header">
+                <span class="course-number">COURSE 03</span>
+                <h2 class="course-title">【日本初！全55条を完全攻略】新人CRA/CRCのための臨床試験実施の基準（GCP省令）入門 - 204頁の図解PDF付</h2>
+            </div>
+            <div class="course-description">
+                <p>「GCPの条文が難しくて、何度読んでも頭に入らない…」「実務でどのルールがどう繋がっているのか、全体像が掴めない…」<br>
+                臨床試験に携わる多くの方が、一度はそんな悩みを抱えたことがあるのではないでしょうか？</p>
+                <p>GCP（医薬品の臨床試験の実施の基準）は、私たちの仕事の根幹をなす、非常に重要なルールです。しかし、その条文は法律特有の難解な言葉で書かれており、独学で本質を理解するのは容易ではありません。</p>
+                <p>このコースは、そんなあなたのための<span class="strong-text">「GCPの動く教科書」</span>です。本講座では、日本で初めて臨床試験実施の基準の全条文（第1条〜第55条）を、一条ずつ丁寧に、動画で解説します。可能な限り、その条文に関連した実務での質疑応答をご紹介しながら、実務で活きる知識習得を目指します。</p>
+                
+                <div class="features-list">
+                    <div class="features-list-title">この講座だけの特別な教材 & 得られること</div>
+                    <ul>
+                        <li><strong>全204ページのオリジナル図解PDF</strong>（ダウンロード可能）</li>
+                        <li>GCP省令全55条の趣旨と要点を、条文ごとに説明できるようになる</li>
+                        <li>「被験者の人権・安全・福祉」の重要性を根本から理解できる</li>
+                        <li>治験の「科学的な質と信頼性」を確保するための具体的な方法を学べる</li>
+                        <li>治験責任医師、治験協力者、モニター、IRBなど各役割の責務を明確に区別</li>
+                    </ul>
+                </div>
+                
+                <div class="note">
+                    <strong>※注意事項：</strong>当該講座は企業治験を対象としておりますので、医師主導治験及び製造販売後臨床試験については割愛しております。
+                </div>
+            </div>
+            <div class="course-action">
+                <a href="https://www.udemy.com/course/sasakigcp/?referralCode=4DA243E1C6D78A2A6EED" target="_blank" rel="noopener noreferrer" class="btn">コースの詳細を見る</a>
+            </div>
+        </article>
+
+    </main>
+
+    <footer>
+  
+    </footer>
+
+</body>
+</html>
